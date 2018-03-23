@@ -1,0 +1,105 @@
+Involves Gophers
+Encontro 1 - Lógica e introdução a linguagem
+Tags: foo, bar, baz
+
+Thiago Trennepohl
+
+* Agenda
+
+- Sobre a linguagem
+- Variáveis
+- Hello World
+- Funções
+- Condiçoes
+- Operadores lógicos (básicos)
+- Slices
+- Loops
+
+* Sobre a linguagem
+
+Go é uma liguagem de programação open source que nasceu no Google.
+É uma linguagem tipada e compilada, diferente de javascript e python que são interpretados.
+Go nasceu com o objetivo de resolver alguns problemas da computação moderna, a principal dela a concorrência.
+
+* Variáveis e Tipos
+
+Variáveis são espaços na memória capazes de representar valores e expressões.
+
+As variáveis em Go são declaradas da seguinte forma:
+
+
+ var minhaVariavel int
+
+*var* -> Palavra reservada da linguagem para declarar variáveis
+
+*minhaVariavel* -> nome da minha variavel (poderia ser até joaozinho)
+
+*int* -> Tipo primitivo da minha variavel (quer dizer que eu só posso armazenar números nela)
+
+
+* Variáveis e Tipos
+
+Mas também é possível declar uma variável já com valor.
+
+ var minhaVariavel int = 10
+
+*=* -> Atribuição de valor
+
+*10* -> Valor desejado
+
+
+* Variáveis e Tipos
+
+Golang tem diversos tipos
+ 
+ bool
+ string
+ int  int8  int16  int32  int64
+ uint uint8 uint16 uint32 uint64 uintptr
+ byte // alias for uint8
+ rune // alias for int32
+ float32 float64
+ complex64 complex128
+
+Os que usaremos hoje serão:
+
+ int
+ string
+ bool
+
+* Variáveis e Tipos
+
+Uma variável do tipo *int* serve para armazenar números.
+
+ var numero = 1
+
+Uma variável do tipo *string* serve para armazenar texto.
+
+ var nome="Gopher"
+
+Uma variável do tipo *bool* serve para armazenar valores booleanos (true|false).
+
+ var golangEManeiro = true
+
+* Hello World
+
+.image cheap.png
+
+* Hello World
+
+.code ../helloworld.go
+
+* Funções
+
+São blocos de código reutilizáveis do seu programa.
+
+Existem diversas formas de declarar um função em Go.
+
+Fora do bloco *main* vamos criar uma função que imprime nome:
+
+ func printName(name string){
+     fmt.Println(name)
+ }
+
+
+ * Funções 
