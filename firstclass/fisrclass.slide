@@ -10,7 +10,7 @@ Thiago Trennepohl
 - Variáveis
 - Hello World
 - Funções
-- Condiçoes
+- Estruturas de decisão
 - Operadores lógicos (básicos)
 - Slices
 - Loops
@@ -46,6 +46,24 @@ Mas também é possível declar uma variável já com valor.
 *=* -> Atribuição de valor
 
 *10* -> Valor desejado
+
+* Variáveis e Tipos
+
+Mas exite outra forma de declarar uma variavel sem precisar ter que falar de qual tipo ela é.
+Até por que em Go você pode declarar seus próprios tipos através das *structs*
+
+Exemplo:
+
+ type Pessoa struct {
+     Nome string
+ }
+ 
+ func main(){
+     miniPessoa := Pessoa{Nome: "Joaozinho"}
+     log.Println(miniPessoa.Nome)
+ }
+
+ 
 
 
 * Variáveis e Tipos
@@ -100,6 +118,190 @@ Fora do bloco *main* vamos criar uma função que imprime nome:
  func printName(name string){
      fmt.Println(name)
  }
+ 
+*func*  palavra reservada da linguagem para declaração de Funções.
+
+*printName*     nome da função.
+
+*name* *string*  argumentos da função, neste caso significa que a função *printName* espera um argumento do tipo string.
+
+* Funções
+
+Agora vamos chamar a função printName dentro do bloco main.
+
+ package main
+
+ import (
+     "fmt"
+ ) 
 
 
- * Funções 
+ func main() {
+     printName("Involves Gophers")
+ }
+
+ func printName(name string){
+     fmt.Println(name)
+ }
+
+* Funções
+
+Em go funções podem ter um ou mais retornos, no geral as funções em Go retornam dois valores.
+Isso em razão de uma das boas práticas de desenvolvimento em Go que é a checagem de erros(exemplo próximo slide)
+
+    func contaLetras(name string) int {
+        return len(name)
+    }
+
+A função len() retorna a quantidade de indíces que um vetor tem, no caso todas as strings são vetores de char.
+Na contaLetras, será retornado a quantidade de letras, pois cada uma ocupa uma posição no vetor.
+
+
+* Condicoes
+
+Condições são estuturas de decisão lógica do programa e são representadas pela seguinte estrutura:
+
+    if 1 > 0 {
+        fmt.Println("1 é maior que 0")
+    }
+
+Neste caso se le:
+
+"Se 1 é maior que 0, então imprima '1 é maior que 0'"
+
+Se o resultado da condição for verdadeiro, ele irá executar o que está dentro do bloco de código.
+
+Caso contrário o programa seguirá executando os próximos comandos.
+
+* Estrutura de condição - Operadores lógicos
+
+ if 0 < 1 {
+     fmt.Println("0 é menor que 1")
+ }
+
+ if 0 == 0 {
+     fmt.Println("0 é igual a 0")
+ }
+
+ if 1 != 2 {
+     fmt.Println("1 é diferente de 2")
+ }
+
+
+* Funções e estruturas de decição
+
+Exemplo de uma função que retorna dois valores:
+
+ func contaLetras(text string) (int, err) {
+     if len(text) < 1 {
+         return 0, errors.New("O texto não possui nenhuma letra")
+     }
+     return len(text),nil
+ }
+
+* Funções e estruturas de decisão - aplicação
+ 
+ import (
+  "errors"
+  "fmt"
+  "log"
+  )
+
+ func main(){
+    count, err := contaLetras("a")
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println(count)
+ }
+
+ func contaLetras(text string) (int, error) {
+     if len(text) < 1 {
+         return 0, errors.New("O texto não tem nenhuma letra")
+    }
+    return len(text), nil
+ }
+
+
+* Slices
+
+Slices é o array de Go.
+Um array tem um tamanho fixo na memória, em outras linguagens você tem que redimensionar manualmente o array.
+Em go ele faz isso sozinho para você.
+
+Exemplo:
+
+  var names []string = []string{"maria", "josé", "joao"}
+  fmt.Println(names[0])
+
+O que acontece com o código acima?
+
+
+* Slices
+Arrays possuem indices ou posições.
+
+ var names []string = []string{"maria", "josé", "joao"}
+
+No caso do slice *names* temos 3 posições.
+Se eu fizer um print do slice names indexado da posição 1 o resultado será?
+  
+  fmt.Println(names[1])
+
+
+* Slices
+
+Para adicionar um novo elemento no slice basta fazer o seguinte:
+ 
+ append(names,"camila")
+
+* Slices
+
+Mas para remover não é tão simples, eu preciso recortar o array
+Para pegar um recorte de um slice basta eu delimitar o indice inicial e final.
+
+  names = names[1:]
+
+A instrução acima irá fazer um recorte do slice a partir da segunda posição até a ultíma posição, ou seja deletamos a primeira posição do slice.
+
+
+* Slices - loops
+
+Loops servem para iterar sobre slices.
+
+  for index,value := range names {
+      fmt.Println(index)
+      fmt.Println(value)
+  }
+
+* Desafio - Coding Dojo
+
+ 99 Prolog problemas
+
+ The purpose of this problem collection 
+ is to give you the opportunity to practice your skills in logic programming. 
+ Your goal should be to find the most elegant solution of the given problems.
+  Efficiency is important, but logical clarity is even more crucial. 
+
+
+* Problema 1
+
+Crie uma função que retorne o valor da última posição de um slice de string.
+
+ var someSlice []string = []string{"a","b","c","d","e","f"}
+
+* Problema 2
+
+Crie uma função que retorne o valor da penúltima posição de um slice de string
+
+ var someSlice []string = []string{"a","b","c","d","e","f"}
+
+* Problema 3
+
+Crie uma função que retorne a posição N de um slice de int
+
+ var someIntSlice []int = []int{1,2,3,4,5,6,7,8}
+
+
+
+
+
