@@ -106,7 +106,17 @@ No caso do atributo maquinista teremos que criar uma função publica do tipo tr
     }
 
 
-* Problema 4
+* Problema 1
+
+Crie uma função que imprima os numeros pares de 1 até 20
+
+
+* Problema 2
+
+Crie uma função que exclui elementos repetidos de uma lista
+
+
+* Problema 1
 
 Crie uma função que identifique se uma string é um palindromo
 
