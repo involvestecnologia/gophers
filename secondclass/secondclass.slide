@@ -1,0 +1,114 @@
+Involves Gophers
+Encontro 2 - Desafios, Structs, Pacotes e Encapsulamento
+
+Thiago Trennepohl
+
+* Agenda
+
+- Repeteco
+- Desafio do Trem
+- Structs
+- Encapsulamento
+- Pacotes
+- Exercícios
+
+* Repeteco
+
+Declaração de variaveis:
+
+ var minhaVariavel int = 10
+ minhavar := 10
+
+* Repeteco
+
+Funções:
+
+  func printName(name string){
+     fmt.Println(name)
+      }
+
+
+* Repeteco
+
+Estruturas de decisão: 
+
+    if 1 > 0 {
+        fmt.Println("1 é maior que 0")
+    }
+
+* Repeteco
+Slices:
+
+  var names []string = []string{"maria", "josé", "joao"}
+
+* Repeteco 
+
+Loops: 
+
+  for index,value := range names {
+      fmt.Println(index)
+      fmt.Println(value)
+  }
+
+
+* Desafio do Trem
+
+Existe uma rua que cruza por um trilho de trem. Dos dois lados da rua existem cancelas que indicam quando o trem está vindo ou não(de ambos lados).
+Assim que o primeiro vagão do trem cruza o primeiro sensor, as cancelas fecham a passagem da rua e os sinais sonoros são ativados,
+e quando não há mais nada passando no segundo sensor, as cancelas abrem novamente e os sinais sonoros são desativados.
+Cada vagão do trem demora 1 segundo para passar de um sensor ao outro, e o tem tem 15 vagões.
+
+Usando loops e estruturas de decisão, crie um algoritmo que represente o cenário acima.
+
+
+* Structs
+
+São coleções de dados agrupados, com structs você consegue criar outros tipos de variáveis.
+
+  type Trem struct{
+      Vagoes int
+  }
+
+  trem Trem = Trem{Vagoes:15}
+  
+  fmt.Println(trem.Vagoes)
+
+
+
+* Pacotes
+
+Em go podemos ter outros pacotes em nosso programa.
+Cirem uma pasta chamada trem em seguinda um arquivo chamado trem.go
+dentro deste arquivo coloquem o seguinte:
+
+  package trem
+
+  type Trem struct{
+      Vagoes int
+      maquinista string
+  }
+
+* Pacotes
+
+Agora no main.go vamos criar uma variavel do tipo Trem.
+
+  trem    Trem    = Trem{15, "pedro"}
+
+* Pacotes & Encapsulamento
+
+Não é possível, pois o atributo Maquinista é privado do pacote tipo e pacote trem
+As funções e Atributos são reconhecidos Publico quando a primeira letra é maiuscula.
+No caso do atributo maquinista teremos que criar uma função publica do tipo trem para atribuir um nome ao maquinista.
+
+  func (t *Trem) SetMaquinistaName(name string) {
+      	t.maquinista = name
+        fmt.Println("O nome do maquinista é " + t.maquinista)
+    }
+
+
+* Problema 4
+
+Crie uma função que identifique se uma string é um palindromo
+
+  palindromo := "natan"
+
